@@ -29,8 +29,8 @@ We evaluate the effectiveness of the proposed approach on the Microsoft Video De
 
 
 <p float="left">
-  <img src="https://users.dcc.uchile.cl/~jeperez/media/2020/AVSSN_s-lstm-model.png" width="50" />
-  <img src="https://users.dcc.uchile.cl/~jeperez/media/2020/AVSSN_adaptive-fusion.png" width="50" /> 
+  <img src="https://users.dcc.uchile.cl/~jeperez/media/2020/AVSSN_s-lstm-model.png" width="400" />
+  <img src="https://users.dcc.uchile.cl/~jeperez/media/2020/AVSSN_adaptive-fusion.png" width="300" /> 
 </p>
 
 ## <a name="requirement"></a>Requirement
