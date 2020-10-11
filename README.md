@@ -4,8 +4,11 @@
 ![DeepLearning](https://img.shields.io/badge/VideoCaptioning-DeepLearning-orange)
 ![](https://img.shields.io/badge/ICPRpaper-SourceCode-yellow)
 ![License](https://img.shields.io/github/license/WingsBrokenAngel/delving-deeper-into-the-decoder-for-video-captioning.svg?color=brightgreen&style=flat)
+
+This repository is the source code for the paper named ***Attentive Visual Semantic Specialized Network for Video Captioning***
+
 ## Table of Contents
-1. [Description](#description)
+1. [Abstract](#abstract)
 2. [Requirement](#requirement)
 3. [Manual](#manual)
 4. [Results](#results)
@@ -14,12 +17,19 @@
 5. [Data](#data)
 6. [Citation](#citation)
 
-## <a name="description"></a> Description
-This repository is the source code for the paper named ***Attentive Visual Semantic Specialized Network for Video Captioning***
+## <a name="abstract"></a> Abstract
+
+As an essential high-level task of video understanding topic, automatically describing a video with natural language has recently gained attention as a fundamental challenge in computer vision. 
+Previous models for video captioning have several limitations, such as the existence of gaps in current semantic representations and the inexpressibility of the generated captions. 
+To deal with these limitations, in this paper, we present a new architecture that we call *Attentive Visual Semantic Specialized Network* (AVSSN), which is an encoder-decoder model based on our Adaptive Attention Gate and Specialized LSTM layers. 
+This architecture can selectively decide when to use visual or semantic information into the text generation process. 
+The adaptive gate makes the decoder to automatically select the relevant information for providing a better temporal state representation than the existing decoders. 
+Besides, the model is capable of learning to improve the expressiveness of generated captions attending to their length, using a sentence-length-related loss function. 
+We evaluate the effectiveness of the proposed approach on the Microsoft Video Description (MSVD) and the Microsoft Research Video-to-Text (MSR-VTT) datasets, achieving state-of-the-art performance with several popular evaluation metrics: BLEU-4, METEOR, CIDEr, and ROUGE$_L$
 
 ## <a name="requirement"></a>Requirement
 1. Python 3.6
-2. Pytorch 1.1.2
+2. Pytorch 1.2.0
 3. pycocoevalcap (Python3)
 4. NumPy
 
