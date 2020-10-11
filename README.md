@@ -28,10 +28,10 @@ Besides, the model is capable of learning to improve the expressiveness of gener
 We evaluate the effectiveness of the proposed approach on the Microsoft Video Description (MSVD) and the Microsoft Research Video-to-Text (MSR-VTT) datasets, achieving state-of-the-art performance with several popular evaluation metrics: BLEU-4, METEOR, CIDEr, and ROUGE$_L$
 
 
-
-![](https://users.dcc.uchile.cl/~jeperez/media/2020/AVSSN_s-lstm-model.png)  |  ![](https://users.dcc.uchile.cl/~jeperez/media/2020/AVSSN_adaptive-fusion.png)
-:---------------------------------------------------------------------------:|:---------------------------:
-Proposed  Adaptive  Visual  Semantic  Specialized  Network  (AVSSN)          |  Adaptive  Attention  Gate
+<p float="left">
+  <img src="https://users.dcc.uchile.cl/~jeperez/media/2020/AVSSN_s-lstm-model.png" width="50" />
+  <img src="https://users.dcc.uchile.cl/~jeperez/media/2020/AVSSN_adaptive-fusion.png" width="50" /> 
+</p>
 
 ## <a name="requirement"></a>Requirement
 1. Python 3.6
