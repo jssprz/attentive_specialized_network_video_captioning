@@ -27,6 +27,12 @@ The adaptive gate makes the decoder to automatically select the relevant informa
 Besides, the model is capable of learning to improve the expressiveness of generated captions attending to their length, using a sentence-length-related loss function. 
 We evaluate the effectiveness of the proposed approach on the Microsoft Video Description (MSVD) and the Microsoft Research Video-to-Text (MSR-VTT) datasets, achieving state-of-the-art performance with several popular evaluation metrics: BLEU-4, METEOR, CIDEr, and ROUGE$_L$
 
+
+
+![](https://users.dcc.uchile.cl/~jeperez/media/2020/AVSSN_s-lstm-model.png)  |  ![](https://users.dcc.uchile.cl/~jeperez/media/2020/AVSSN_adaptive-fusion.png)
+:---------------------------------------------------------------------------:|:---------------------------:
+Proposed  Adaptive  Visual  Semantic  Specialized  Network  (AVSSN)          |  Adaptive  Attention  Gate
+
 ## <a name="requirement"></a>Requirement
 1. Python 3.6
 2. Pytorch 1.2.0
