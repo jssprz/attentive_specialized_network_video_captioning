@@ -15,11 +15,9 @@ We evaluate the effectiveness of the proposed approach on the Microsoft Video De
 1. [Model](#model)
 2. [Requirement](#requirement)
 3. [Manual](#manual)
-4. [Results](#results)
-    1. [Comparison on MSVD](#msvd)
-    2. [Comparison on MSR-VTT](#cm)
-5. [Data](#data)
-6. [Citation](#citation)
+4. [Qualitative Results](#qualitative)
+5. [Quantitative Results](#quantitative)
+7. [Citation](#citation)
 
 ## <a name="model"></a>Model
 
@@ -36,16 +34,16 @@ We evaluate the effectiveness of the proposed approach on the Microsoft Video De
 
 ## <a name="requirement"></a>Requirement
 1. Python 3.6
-2. Pytorch 1.2.0
+2. PyTorch 1.2.0
 3. pycocoevalcap (Python3)
 4. NumPy
 
 ## <a name="manual"></a>Manual
 
-## <a name="results"></a>Qualitative Results
+## <a name="qualitative"></a>Qualitative Results
 <img src="https://users.dcc.uchile.cl/~jeperez/media/2020/AVSSN_examples.png" alt="qualitative results" height="400"/>
 
-## <a name="msvd"></a>Quantitative Results
+## <a name="quantitative"></a>Quantitative Results
 
 | Dataset | B-4      | C        | M        | R        
 | :------ | :------: | :------: | :------: | :------:
