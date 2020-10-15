@@ -35,10 +35,58 @@ We evaluate the effectiveness of the proposed approach on the Microsoft Video De
 ## <a name="requirement"></a>Requirement
 1. Python 3.6
 2. PyTorch 1.2.0
-3. pycocoevalcap (Python3)
 4. NumPy
 
 ## <a name="manual"></a>Manual
+### Download code
+```
+git clone --recursive https://github.com/jssprz/attentive-specialized-network-video-captioning.git
+```
+
+### Download Data
+
+1. Download files of `data/MSVD` [folder](https://drive.google.com/file/d/1r4-EfYVrUi9Lv-4ntg9QN96arB3iXVZr/view?usp=sharing)
+
+2. Download files of `data/MSR-VTT` [folder](https://drive.google.com/drive/folders/1Vl30RTP8fTrhckINDk9jbUmZZjCSlzGw?usp=sharing)
+
+
+### Testing
+
+1. Download pre-trained models
+
+- MSVD
+```
+wget 
+```
+
+-MSR-VTT
+```
+wget 
+```
+
+2. Generate captions for test samples
+
+- MSVD
+```
+test.py -chckpt models/MSVD/ -folder data/MSVD/ -out_folder results/MSVD/
+```
+
+-MSR-VTT
+```
+test.py -chckpt models/MSR-VTT/ -folder data/MSR-VTT/ -out_folder results/MSR-VTT/
+```
+
+3. Metrics
+
+- MSVD
+```
+evaluate.py -gen results/MSVD/preductions.txt -ref data/MSVD/test_references.txt
+```
+
+- MSR-VTT
+```
+evaluate.py -gen results/MSVD/preductions.txt -ref data/MSR-VTT/test_references.txt
+```
 
 ## <a name="qualitative"></a>Qualitative Results
 <img src="https://users.dcc.uchile.cl/~jeperez/media/2020/AVSSN_examples.png" alt="qualitative results" height="400"/>
@@ -50,7 +98,6 @@ We evaluate the effectiveness of the proposed approach on the Microsoft Video De
 |MSVD     | 62.3     | 39.2     | 107.7    | 78.3
 |MSR-VTT  | 45.5     | 31.4     | 50.6     | 64.3
 
-## <a name="data"></a>Data
 ## <a name="citation"></a>Citation
 ```
 @article{PerezMartin2020AttentiveCaptioning,
