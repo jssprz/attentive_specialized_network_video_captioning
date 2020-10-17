@@ -44,36 +44,30 @@ git clone --recursive https://github.com/jssprz/attentive-specialized-network-vi
 ```
 
 ### Download Data
-
-1. Download files of `data/MSVD` [folder](https://drive.google.com/file/d/1r4-EfYVrUi9Lv-4ntg9QN96arB3iXVZr/view?usp=sharing)
-
-2. Download files of `data/MSR-VTT` [folder](https://drive.google.com/drive/folders/1Vl30RTP8fTrhckINDk9jbUmZZjCSlzGw?usp=sharing)
-
+```
+mkdir -p data/MSVD && wget -i msvd_data.txt -P data/MSVD
+mkdir -p data/MSR-VTT && wget -i msrvtt_data.txt -P data/MSR-VTT
+```
 
 ### Testing
 
 1. Download pre-trained models
 
-- MSVD
 ```
-wget 
-```
-
--MSR-VTT
-```
-wget 
+wget https://s06.imfd.cl/04/github-data/AVSSN/MSVD/chckpt data/MSVD
+wget https://s06.imfd.cl/04/github-data/AVSSN/MSR-VTT/chckpt data/MSR-VTT
 ```
 
 2. Generate captions for test samples
 
 - MSVD
 ```
-test.py -chckpt models/MSVD/ -folder data/MSVD/ -out_folder results/MSVD/
+python test.py -chckpt models/MSVD/ -folder data/MSVD/ -out_folder results/MSVD/
 ```
 
--MSR-VTT
+- MSR-VTT
 ```
-test.py -chckpt models/MSR-VTT/ -folder data/MSR-VTT/ -out_folder results/MSR-VTT/
+python test.py -chckpt models/MSR-VTT/ -folder data/MSR-VTT/ -out_folder results/MSR-VTT/
 ```
 
 3. Metrics
