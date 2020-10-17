@@ -54,8 +54,8 @@ mkdir -p data/MSR-VTT && wget -i msrvtt_data.txt -P data/MSR-VTT
 1. Download pre-trained models (at epoch 15)
 
 ```
-wget https://s06.imfd.cl/04/github-data/AVSSN/MSVD/captioning_chkpt_15.pt data/MSVD
-wget https://s06.imfd.cl/04/github-data/AVSSN/MSR-VTT/captioning_chkpt_15.pt data/MSR-VTT
+wget https://s06.imfd.cl/04/github-data/AVSSN/MSVD/captioning_chkpt_15.pt -P data/MSVD
+wget https://s06.imfd.cl/04/github-data/AVSSN/MSR-VTT/captioning_chkpt_15.pt -P data/MSR-VTT
 ```
 
 2. Generate captions for test samples
