@@ -1,4 +1,5 @@
-
+import torch
+import torch.nn as nn
 
 def decode_from_tokens(tokens, vocab):
   words = []
@@ -19,3 +20,9 @@ def load_texts(path):
       result_dict[idx].append(sentence)
     else:
       result_dict[idx] = [sentence]
+
+
+def get_init_weights(shape):
+    W = torch.rand(shape)
+    nn.init.xavier_normal_(W.data)
+    return nn.Parameter(W)

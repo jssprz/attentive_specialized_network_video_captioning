@@ -1,6 +1,8 @@
 import torch
 import torch.nn as nn
 
+from attention import Attention
+
 
 def get_init_weights(shape):
     W = torch.rand(shape)
@@ -70,10 +72,10 @@ class SCNAttnDecoder(nn.Module):
         self.Uc_o = get_init_weights((rnn_hidden_size, hidden_size))
         self.Uc_c = get_init_weights((rnn_hidden_size, hidden_size))
 
-        self.b_i = Parameter(torch.zeros(hidden_size))
-        self.b_f = Parameter(torch.zeros(hidden_size))
-        self.b_o = Parameter(torch.zeros(hidden_size))
-        self.b_c = Parameter(torch.zeros(hidden_size))
+        self.b_i = nn.Parameter(torch.zeros(hidden_size))
+        self.b_f = nn.Parameter(torch.zeros(hidden_size))
+        self.b_o = nn.Parameter(torch.zeros(hidden_size))
+        self.b_c = nn.Parameter(torch.zeros(hidden_size))
 
         self.out = nn.Linear(self.hidden_size * self.num_directions, self.output_size)
 

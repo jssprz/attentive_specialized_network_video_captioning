@@ -1,6 +1,8 @@
 import torch
 import torch.nn as nn
 
+from utils import get_init_weights
+
 
 class Attention(nn.Module):
     def __init__(self, seq_len, embedding_size, hidden_size, n_layers, num_directions, mode='basic'):
@@ -13,7 +15,7 @@ class Attention(nn.Module):
             self.W1 = get_init_weights((hidden_size, hidden_size))
 #             self.W2 = get_init_weights((embedding_size, hidden_size))
             self.W3 = get_init_weights((hidden_size, seq_len))
-            self.b = Parameter(torch.zeros(hidden_size))
+            self.b = nn.Parameter(torch.zeros(hidden_size))
 
         self.__init_layers()
 
