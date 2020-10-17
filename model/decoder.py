@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+from torch.autograd import Variable
 
 from utils import get_init_weights
 from model.attention import Attention

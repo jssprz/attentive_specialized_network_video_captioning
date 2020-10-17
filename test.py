@@ -109,6 +109,7 @@ if __name__ == '__main__':
       dataset = feats_file[config.dataset_name]
       cnn_feats = torch.from_numpy(dataset['cnn_features'][test_vidxs]).float()
       c3d_feats = torch.from_numpy(dataset['c3d_features'][test_vidxs]).float()
+      cnn_globals = torch.from_numpy(dataset['cnn_globals'][test_vidxs]).float()
       cnn_sem_globals = torch.from_numpy(dataset['cnn_sem_globals'][test_vidxs]).float()
       f_counts = dataset['count_features'][test_vidxs]
       print('visual feats loaded')
