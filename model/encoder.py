@@ -17,24 +17,21 @@ class SCNEncoder(nn.Module):
         self.device = device
 
 
-    def forward_fn(self, v_feats, s_feats, cnn_globals, v_globals, s_globals):
+    def forward_fn(self, v_feats, cnn_sem_globals, v_globals, s_globals):
         batch_size, seq_len, feats_size = v_feats.size()
 
         h = Variable(torch.zeros(2*2, batch_size, self.hidden_size)).to(self.device)
         c = Variable(torch.zeros(2*2, batch_size, self.hidden_size)).to(self.device)
         
-        v_globals = torch.cat((v_globals, cnn_globals), dim=1)
+        v_globals = torch.cat((v_globals, cnn_sem_globals), dim=1)
         
         return v_feats, s_feats, (h,c), s_globals, v_globals  #pool
 
 
-    def forward(self, cnn_feats, c3d_feats, i3d_feats, eco_feats, eco_sem_feats, tsm_sem_feats, cnn_globals, cnn_sem_globals, tags_globals, res_eco_globals):
+    def forward(self, cnn_feats, c3d_feats, cnn_sem_globals, tags_globals, res_eco_globals):
         batch_size = cnn_feats.size(0)
 
         # (batch_size x max_frames x feature_size) -> (batch_size*max_frames x feature_size)
-        cnn_feats = cnn_feats.view(-1, self.cnn_feature_size)
-        c3d_feats = c3d_feats.view(-1, self.c3d_feature_size)
-        v_concat = torch.cat((cnn_feats, c3d_feats), dim=1)
-        v_concat = v_concat.view(batch_size, -1, self.cnn_feature_size + self.c3d_feature_size)
+        v_concat = torch.cat((cnn_feats, c3d_feats), dim=2)
         
-        return self.forward_fn(v_concat, tsm_sem_feats, cnn_globals, res_eco_globals, tags_globals)
+        return self.forward_fn(v_concat, cnn_sem_globals, res_eco_globals, tags_globals)

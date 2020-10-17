@@ -100,31 +100,25 @@ if __name__ == '__main__':
   decoder.load_state_dict(checkpoint['decoder'])
 
   #load test set features
-  test_vidxs = corpus[2][1]
+  test_vidxs = list(set(corpus[2][1]))
 
   with h5py.File(config.features_path, 'r') as feats_file:
       print('loading visual feats...')
-      dataset = feats_file[self.config.dataset_name]
+      dataset = feats_file[config.dataset_name]
       cnn_feats = dataset['cnn_features'][test_vidxs]
-      cnn_globals = np.zeros((cnn_feats.shape[0], 512))  # dataset['cnn_globals'][...]
       c3d_feats = dataset['c3d_features'][test_vidxs]
-      i3d_feats = np.zeros_like(cnn_feats)  # dataset['i3d_features'][...]
-      eco_feats = np.zeros_like(cnn_feats)  # dataset['eco_features'][...]
-      eco_sem_feats = np.zeros_like(cnn_feats)  # dataset['eco_sem_features'][...]
-      tsm_sem_feats = np.zeros_like(cnn_feats)  # dataset['tsm_sem_features'][...]
       cnn_sem_globals = dataset['cnn_sem_globals'][test_vidxs]
       f_counts = dataset['count_features'][test_vidxs]
       print('visual feats loaded')
 
-  res_eco_feats = torch.from_numpy(np.load(os.path.join(args.dataset_folder, 'resnext_eco.npy'))[test_vidxs])
-  tags_feats = torch.from_numpy(np.load(os.path.join(args.dataset_folder, 'tag_feats.npy'))[test_vidxs])
+  res_eco_globals = torch.from_numpy(np.load(os.path.join(args.dataset_folder, 'resnext_eco.npy'))[test_vidxs])
+  tags_globals = torch.from_numpy(np.load(os.path.join(args.dataset_folder, 'tag_feats.npy'))[test_vidxs])
 
   encoder.eval()
   decoder.eval()
 
   with torch.no_grad():
-      video_encoded = encoder(cnn_feats, c3d_feats, i3d_feats, eco_feats, eco_sem_feats, tsm_sem_feats, 
-                              cnn_globals, cnn_sem_globals, tags_globals=None, res_eco_globals=res_eco_globals)
+      video_encoded = encoder(cnn_feats, c3d_feats, cnn_sem_globals, tags_globals, res_eco_globals)
       logits, tokens = decoder(video_encoded, None, teacher_forcing_ratio=0)
 
       scores = logits.max(dim=2)[0].mean(dim=1)
