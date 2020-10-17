@@ -109,7 +109,7 @@ if __name__ == '__main__':
       dataset = feats_file[config.dataset_name]
       cnn_feats = torch.from_numpy(dataset['cnn_features'][test_vidxs]).float()
       c3d_feats = torch.from_numpy(dataset['c3d_features'][test_vidxs]).float()
-      cnn_globals = torch.zeors(cnn_feats.size(0), 512)  # torch.from_numpy(dataset['cnn_globals'][test_vidxs]).float()
+      cnn_globals = torch.zeros(cnn_feats.size(0), 512)  # torch.from_numpy(dataset['cnn_globals'][test_vidxs]).float()
       cnn_sem_globals = torch.from_numpy(dataset['cnn_sem_globals'][test_vidxs]).float()
       f_counts = dataset['count_features'][test_vidxs]
       print('visual feats loaded')
@@ -133,6 +133,9 @@ if __name__ == '__main__':
           sentences.append(s)
           confidences.append(score)
 
+  if not os.path.exists(args.output_folder):
+    os.makedirs(args.output_folder)
+
   with open(os.path.join(args.output_folder, 'predictions.txt'), 'w') as fo:
     for vidx, sentence in zip(test_vidxs, sentences):
-      f.write(f'{vidx}\t{sentence}\n')
+      fo.write(f'{vidx}\t{sentence}\n')

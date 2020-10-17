@@ -1,6 +1,10 @@
-import argparser
-from video_description_eval.evaluate import score
+import sys
+import argparse
+
 from utils import load_texts
+
+sys.path.append('video_description_eval/coco-caption')
+from video_description_eval.evaluate import score
 
 
 if __name__ == '__main__':

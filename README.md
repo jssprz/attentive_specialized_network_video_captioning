@@ -69,12 +69,12 @@ python test.py -chckpt pretrain/MSR-VTT/captioning_chkpt_15.pt -data data/MSR-VT
 
 - MSVD
 ```
-evaluate.py -gen results/MSVD/preductions.txt -ref data/MSVD/test_references.txt
+python evaluate.py -gen results/MSVD/predictions.txt -ref data/MSVD/test_references.txt
 ```
 
 - MSR-VTT
 ```
-evaluate.py -gen results/MSR-VTT/preductions.txt -ref data/MSR-VTT/test_references.txt
+python evaluate.py -gen results/MSR-VTT/predictions.txt -ref data/MSR-VTT/test_references.txt
 ```
 
 ## <a name="qualitative"></a>Qualitative Results

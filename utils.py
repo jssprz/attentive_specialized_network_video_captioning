@@ -20,6 +20,7 @@ def load_texts(path):
       result_dict[idx].append(sentence)
     else:
       result_dict[idx] = [sentence]
+  return result_dict
 
 
 def get_init_weights(shape):
