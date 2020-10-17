@@ -21,7 +21,7 @@ if __name__ == '__main__':
   args = parser.parse_args()
 
   # load vocabulary
-  with open(os.path.join(args.dataset_folder, 'corpus.pkl', "rb")) as f:
+  with open(os.path.join(args.dataset_folder, 'corpus.pkl'), "rb") as f:
       corpus = pickle.load(f)
       idx2word_dict = corpus[4]
   vocab = Vocabulary.from_idx2word_dict(idx2word_dict, False)

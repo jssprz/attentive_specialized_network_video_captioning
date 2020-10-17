@@ -11,12 +11,12 @@ class Vocabulary(object):
         self.lowercase = lowercase
 
     @classmethod
-    def from_word2idx_dict(cls, word2idx_dict, lowercase=True):
+    def from_idx2word_dict(cls, idx2word_dict, lowercase=True):
         instance = cls(lowercase)
-        instance.word2idx = word2idx_dict
-        for k, v in word2idx_dict.items():
-            instance.idx2word[v] = k
-        instance.nwords = len(word2idx_dict)
+        instance.idx2word = idx2word_dict
+        for k, v in idx2word_dict.items():
+            instance.word2idx[v] = k
+        instance.nwords = len(idx2word_dict)
         instance.lowercase = lowercase
         return instance
 
