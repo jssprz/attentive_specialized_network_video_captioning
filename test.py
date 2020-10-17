@@ -1,6 +1,5 @@
 import os
 import argparse
-import h5py
 import pickle
 
 from utils import decode_from_tokens
@@ -8,6 +7,9 @@ from vocabulary import Vocabulary
 from configuration_file import ConfigurationFile
 from model.encoder import SCNEncoder
 from model.decoder import VSCNAttnDecoder
+
+import h5py
+import torch
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description='Generate captions por test samples')
@@ -47,7 +49,7 @@ if __name__ == '__main__':
   rnn_in_size = 300  #1024
   rnn_hidden_size = 1024
 
-  config = ConfigurationFile('config.ini', 'attn-vscn-max')
+  config = ConfigurationFile(os.path.join(args.dataset_folder, 'config.ini'), 'attn-vscn-max')
 
   # Models
   encoder = SCNEncoder(cnn_feature_size=cnn_feature_size,
@@ -61,11 +63,11 @@ if __name__ == '__main__':
                         input_dropout_p=config.encoder_dropout_p,
                         rnn_dropout_p=config.encoder_dropout_p,
                         bidirectional=config.encoder_bidirectional,
-                        rnn_cell=self.config.encoder_rnn_cell,
+                        rnn_cell=config.encoder_rnn_cell,
                         device='cpu')
 
   decoder = VSCNAttnDecoder(in_seq_length=max_frames, 
-                            out_seq_length=self.max_words,
+                            out_seq_length=config.max_words,
                             n_feats=res_eco_features_size + 512,
                             n_tags=n_tags,
                             embedding_size=embedding_size,
