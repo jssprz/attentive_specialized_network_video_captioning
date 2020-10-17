@@ -3,5 +3,5 @@ https://s06.imfd.cl/04/github-data/AVSSN/MSVD/test_references.txt
 https://s06.imfd.cl/04/github-data/AVSSN/MSVD/config.ini
 https://s06.imfd.cl/04/github-data/AVSSN/MSVD/corpus.pkl
 https://s06.imfd.cl/04/github-data/AVSSN/MSVD/resnext_eco.npy
-https://s06.imfd.cl/04/github-data/AVSSN/MSVD/semantic_tag.npy
+https://s06.imfd.cl/04/github-data/AVSSN/MSVD/tag_feats.npy
 https://s06.imfd.cl/04/github-data/AVSSN/MSVD/linspace16_resnext101_c3d_r1plus2d18.h5
