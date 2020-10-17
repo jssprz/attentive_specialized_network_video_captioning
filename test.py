@@ -90,7 +90,13 @@ if __name__ == '__main__':
 
   # Checkpoint
   checkpoint = torch.load(args.checkpoint_path, map_location='cpu')
-  encoder.load_state_dict(checkpoint['encoder'])
+
+  # 1. filter out unnecessary keys for encoder
+  chckpt_dict = {k: v for k, v in checkpoint['encoder'].items() if k not in ['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias']}
+  encoder_dict = encoder.state_dict()
+  encoder_dict.update(chckpt_dict)
+
+  encoder.load_state_dict(encoder_dict)
   decoder.load_state_dict(checkpoint['decoder'])
 
   #load test set features
