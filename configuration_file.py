@@ -58,7 +58,7 @@ class ConfigurationFile:
         self.__decoder_temperature = float(section['decoder_temperature'])
         self.__decoder_beam_search_logic = section['decoder_beam_search_logic']
 
-        if 'max_word' in section:
+        if 'max_words' in section:
             self.__max_words = section['max_words']
 
     @property
@@ -75,7 +75,7 @@ class ConfigurationFile:
 
     @property
     def max_words(self):
-        return self._max_words
+        return self.__max_words
 
     @property
     def features_path(self):
