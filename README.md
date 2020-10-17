@@ -51,23 +51,18 @@ mkdir -p data/MSR-VTT && wget -i msrvtt_data.txt -P data/MSR-VTT
 
 ### Testing
 
-1. Download pre-trained models
+1. Download pre-trained models (at epoch 15)
 
 ```
-wget https://s06.imfd.cl/04/github-data/AVSSN/MSVD/chckpt data/MSVD
-wget https://s06.imfd.cl/04/github-data/AVSSN/MSR-VTT/chckpt data/MSR-VTT
+wget https://s06.imfd.cl/04/github-data/AVSSN/MSVD/captioning_chkpt_15.pt data/MSVD
+wget https://s06.imfd.cl/04/github-data/AVSSN/MSR-VTT/captioning_chkpt_15.pt data/MSR-VTT
 ```
 
 2. Generate captions for test samples
 
-- MSVD
 ```
-python test.py -chckpt models/MSVD/ -folder data/MSVD/ -out_folder results/MSVD/
-```
-
-- MSR-VTT
-```
-python test.py -chckpt models/MSR-VTT/ -folder data/MSR-VTT/ -out_folder results/MSR-VTT/
+python test.py -chckpt pretrain/MSVD/captioning_chkpt_15.pt -data data/MSVD/ -out results/MSVD/
+python test.py -chckpt pretrain/MSR-VTT/captioning_chkpt_15.pt -data data/MSR-VTT/ -out results/MSR-VTT/
 ```
 
 3. Metrics
@@ -79,7 +74,7 @@ evaluate.py -gen results/MSVD/preductions.txt -ref data/MSVD/test_references.txt
 
 - MSR-VTT
 ```
-evaluate.py -gen results/MSVD/preductions.txt -ref data/MSR-VTT/test_references.txt
+evaluate.py -gen results/MSR-VTT/preductions.txt -ref data/MSR-VTT/test_references.txt
 ```
 
 ## <a name="qualitative"></a>Qualitative Results
@@ -87,10 +82,10 @@ evaluate.py -gen results/MSVD/preductions.txt -ref data/MSR-VTT/test_references.
 
 ## <a name="quantitative"></a>Quantitative Results
 
-| Dataset | B-4      | C        | M        | R        
-| :------ | :------: | :------: | :------: | :------:
-|MSVD     | 62.3     | 39.2     | 107.7    | 78.3
-|MSR-VTT  | 45.5     | 31.4     | 50.6     | 64.3
+| Dataset | epoch    | B-4      | C        | M        | R        
+| :------ | :------: | :------: | :------: | :------: | :------:
+|MSVD     | 100      | 62.3     | 39.2     | 107.7    | 78.3
+|MSR-VTT  | 60       | 45.5     | 31.4     | 50.6     | 64.3
 
 ## <a name="citation"></a>Citation
 ```
