@@ -16,13 +16,6 @@ class SCNEncoder(nn.Module):
         self.specific_tagger_hidden_size = specific_tagger_hidden_size
         self.device = device
 
-        self._init_hidden()
-
-
-    def _init_hidden(self):
-        nn.init.xavier_normal_(self.fc1.weight)
-        nn.init.xavier_normal_(self.fc2.weight)
-
 
     def forward_fn(self, v_feats, s_feats, cnn_globals, v_globals, s_globals):
         batch_size, seq_len, feats_size = v_feats.size()
@@ -33,7 +26,8 @@ class SCNEncoder(nn.Module):
         v_globals = torch.cat((v_globals, cnn_globals), dim=1)
         
         return v_feats, s_feats, (h,c), s_globals, v_globals  #pool
-        
+
+
     def forward(self, cnn_feats, c3d_feats, i3d_feats, eco_feats, eco_sem_feats, tsm_sem_feats, cnn_globals, cnn_sem_globals, tags_globals, res_eco_globals):
         batch_size = cnn_feats.size(0)
 
