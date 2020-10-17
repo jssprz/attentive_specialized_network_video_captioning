@@ -109,7 +109,7 @@ if __name__ == '__main__':
       dataset = feats_file[config.dataset_name]
       cnn_feats = torch.from_numpy(dataset['cnn_features'][test_vidxs]).float()
       c3d_feats = torch.from_numpy(dataset['c3d_features'][test_vidxs]).float()
-      cnn_globals = torch.from_numpy(dataset['cnn_globals'][test_vidxs]).float()
+      cnn_globals = torch.zeors(cnn_feats.size(0), 512)  # torch.from_numpy(dataset['cnn_globals'][test_vidxs]).float()
       cnn_sem_globals = torch.from_numpy(dataset['cnn_sem_globals'][test_vidxs]).float()
       f_counts = dataset['count_features'][test_vidxs]
       print('visual feats loaded')
@@ -121,7 +121,7 @@ if __name__ == '__main__':
   decoder.eval()
 
   with torch.no_grad():
-      video_encoded = encoder(cnn_feats, c3d_feats, cnn_sem_globals, tags_globals, res_eco_globals)
+      video_encoded = encoder(cnn_feats, c3d_feats, cnn_globals, tags_globals, res_eco_globals)
       logits, tokens = decoder(video_encoded, None, teacher_forcing_ratio=0)
 
       scores = logits.max(dim=2)[0].mean(dim=1)

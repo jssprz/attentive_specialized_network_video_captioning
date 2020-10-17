@@ -20,6 +20,9 @@ class Vocabulary(object):
         instance.lowercase = lowercase
         return instance
 
+    def idx_to_word(self, idx):
+        return self.idx2word[idx] if idx in self.idx2word else '<unk>'
+
     def __call__(self, word):
         """
         Returns the id corresponding to the word

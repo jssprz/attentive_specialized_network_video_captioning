@@ -35,4 +35,4 @@ class SCNEncoder(nn.Module):
         # (batch_size x max_frames x feature_size) -> (batch_size*max_frames x feature_size)
         v_concat = torch.cat((cnn_feats, c3d_feats), dim=2)
         
-        return self.forward_fn(v_concat, cnn_sem_globals, res_eco_globals, tags_globals)
+        return self.forward_fn(v_concat, cnn_globals, res_eco_globals, tags_globals)

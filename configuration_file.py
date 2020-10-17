@@ -59,7 +59,7 @@ class ConfigurationFile:
         self.__decoder_beam_search_logic = section['decoder_beam_search_logic']
 
         if 'max_words' in section:
-            self.__max_words = section['max_words']
+            self.__max_words = int(section['max_words'])
 
     @property
     def dataset_name(self):
