@@ -1,13 +1,9 @@
 import torch
 import torch.nn as nn
 
-from attention import Attention
+from utils import get_init_weights
+from model.attention import Attention
 
-
-def get_init_weights(shape):
-    W = torch.rand(shape)
-    nn.init.xavier_normal_(W.data)
-    return nn.Parameter(W)
 
 
 class SCNAttnDecoder(nn.Module):
