@@ -1,8 +1,12 @@
+import torch
+import torch.nn as nn
+from torch.autograd import Variable
+
 class SCNEncoder(nn.Module):
     def __init__(self, cnn_feature_size, c3d_feature_size, i3d_feature_size, n_tags, hidden_size, global_tagger_hidden_size, specific_tagger_hidden_size, input_dropout_p=0.2, 
                  rnn_dropout_p=0.5, n_layers=1, bidirectional=False, rnn_cell='gru', device='gpu'):
         super(SCNEncoder, self).__init__()
-        
+
         self.cnn_feature_size = cnn_feature_size
         self.c3d_feature_size = c3d_feature_size
         self.i3d_feature_size = i3d_feature_size
@@ -11,13 +15,15 @@ class SCNEncoder(nn.Module):
         self.global_tagger_hidden_size = global_tagger_hidden_size
         self.specific_tagger_hidden_size = specific_tagger_hidden_size
         self.device = device
-        
+
         self._init_hidden()
+
 
     def _init_hidden(self):
         nn.init.xavier_normal_(self.fc1.weight)
         nn.init.xavier_normal_(self.fc2.weight)
-                
+
+
     def forward_fn(self, v_feats, s_feats, cnn_globals, v_globals, s_globals):
         batch_size, seq_len, feats_size = v_feats.size()
 
