@@ -10,6 +10,8 @@ from model.decoder import VSCNAttnDecoder
 
 import h5py
 import torch
+import numpy as np
+
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description='Generate captions por test samples')
@@ -105,9 +107,9 @@ if __name__ == '__main__':
   with h5py.File(config.features_path, 'r') as feats_file:
       print('loading visual feats...')
       dataset = feats_file[config.dataset_name]
-      cnn_feats = dataset['cnn_features'][test_vidxs]
-      c3d_feats = dataset['c3d_features'][test_vidxs]
-      cnn_sem_globals = dataset['cnn_sem_globals'][test_vidxs]
+      cnn_feats = torch.from_numpy(dataset['cnn_features'][test_vidxs]).float()
+      c3d_feats = torch.from_numpy(dataset['c3d_features'][test_vidxs]).float()
+      cnn_sem_globals = torch.from_numpy(dataset['cnn_sem_globals'][test_vidxs]).float()
       f_counts = dataset['count_features'][test_vidxs]
       print('visual feats loaded')
 

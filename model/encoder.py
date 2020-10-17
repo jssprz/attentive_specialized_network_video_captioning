@@ -25,7 +25,7 @@ class SCNEncoder(nn.Module):
         
         v_globals = torch.cat((v_globals, cnn_sem_globals), dim=1)
         
-        return v_feats, s_feats, (h,c), s_globals, v_globals  #pool
+        return v_feats, (h,c), s_globals, v_globals 
 
 
     def forward(self, cnn_feats, c3d_feats, cnn_sem_globals, tags_globals, res_eco_globals):

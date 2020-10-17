@@ -428,9 +428,9 @@ class VSCNAttnDecoder(nn.Module):
 
 
     def forward(self, videos_encodes, captions, teacher_forcing_ratio=0.5):
-        return self.forward_fn(video_pool=videos_encodes[4], 
-                               encoder_tags=videos_encodes[3], 
-                               encoder_hidden=videos_encodes[2], 
+        return self.forward_fn(video_pool=videos_encodes[3], 
+                               encoder_tags=videos_encodes[2], 
+                               encoder_hidden=videos_encodes[1], 
                                encoder_outputs=videos_encodes[0], 
                                captions=captions, 
                                teacher_forcing_ratio=teacher_forcing_ratio)  
