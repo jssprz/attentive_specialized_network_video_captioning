@@ -50,6 +50,8 @@ mkdir -p data/MSVD && wget -i msvd_data.txt -P data/MSVD
 mkdir -p data/MSR-VTT && wget -i msrvtt_data.txt -P data/MSR-VTT
 ```
 
+For extracting your own visual features representations we provide the [visual-feature-extracotr](https://github.com/jssprz/video-features-extractor) package.
+
 ### Testing
 
 1. Download pre-trained models (at epoch 15)
