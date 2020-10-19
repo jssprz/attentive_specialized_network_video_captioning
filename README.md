@@ -13,7 +13,7 @@ We evaluate the effectiveness of the proposed approach on the Microsoft Video De
 
 ## Table of Contents
 1. [Model](#model)
-2. [Requirement](#requirement)
+2. [Requirements](#requirements)
 3. [Manual](#manual)
 4. [Qualitative Results](#qualitative)
 5. [Quantitative Results](#quantitative)
@@ -32,7 +32,7 @@ We evaluate the effectiveness of the proposed approach on the Microsoft Video De
   </tr>
  </table>
 
-## <a name="requirement"></a>Requirement
+## <a name="requirements"></a>Requirements
 1. Python 3.6
 2. PyTorch 1.2.0
 4. NumPy
@@ -44,6 +44,7 @@ git clone --recursive https://github.com/jssprz/attentive-specialized-network-vi
 ```
 
 ### Download Data
+
 ```
 mkdir -p data/MSVD && wget -i msvd_data.txt -P data/MSVD
 mkdir -p data/MSR-VTT && wget -i msrvtt_data.txt -P data/MSR-VTT
@@ -67,13 +68,8 @@ python test.py -chckpt pretrain/MSR-VTT/captioning_chkpt_15.pt -data data/MSR-VT
 
 3. Metrics
 
-- MSVD
 ```
 python evaluate.py -gen results/MSVD/predictions.txt -ref data/MSVD/test_references.txt
-```
-
-- MSR-VTT
-```
 python evaluate.py -gen results/MSR-VTT/predictions.txt -ref data/MSR-VTT/test_references.txt
 ```
 
@@ -88,6 +84,7 @@ python evaluate.py -gen results/MSR-VTT/predictions.txt -ref data/MSR-VTT/test_r
 |MSR-VTT  | 60       | 45.5     | 31.4     | 50.6     | 64.3
 
 ## <a name="citation"></a>Citation
+
 ```
 @article{PerezMartin2020AttentiveCaptioning,
 	title={Attentive Visual Semantic Specialized Network for Video Captioning},
