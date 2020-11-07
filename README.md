@@ -3,7 +3,6 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) 
 ![DeepLearning](https://img.shields.io/badge/VideoCaptioning-DeepLearning-orange)
 ![](https://img.shields.io/badge/ICPRpaper-SourceCode-yellow)
-![License](https://img.shields.io/github/license/WingsBrokenAngel/delving-deeper-into-the-decoder-for-video-captioning.svg?color=brightgreen&style=flat)
 
 This repository is the source code for the paper named ***Attentive Visual Semantic Specialized Network for Video Captioning***.
 In this paper, we present a new architecture that we call *Attentive Visual Semantic Specialized Network* (AVSSN), which is an encoder-decoder model based on our Adaptive Attention Gate and Specialized LSTM layers. 
