@@ -34,7 +34,7 @@ if __name__ == '__main__':
   # Pretrained Embedding
   pretrained_embedding = torch.Tensor(corpus[5])
 
-  max_frames = 20 #30
+  #max_frames = 20 #30
   cnn_feature_size = 2048
   c3d_feature_size = 4096
   i3d_feature_size = 400
@@ -68,7 +68,7 @@ if __name__ == '__main__':
                         rnn_cell=config.encoder_rnn_cell,
                         device='cpu')
 
-  decoder = VSCNAttnDecoder(in_seq_length=max_frames, 
+  decoder = VSCNAttnDecoder(in_seq_length=config.max_frames, 
                             out_seq_length=config.max_words,
                             n_feats=res_eco_features_size + 512,
                             n_tags=n_tags,

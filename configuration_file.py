@@ -60,6 +60,8 @@ class ConfigurationFile:
 
         if 'max_words' in section:
             self.__max_words = int(section['max_words'])
+        if 'max_frames' in section:
+            self.__max_frames = int(section['max_frames'])
 
     @property
     def dataset_name(self):
@@ -76,6 +78,10 @@ class ConfigurationFile:
     @property
     def max_words(self):
         return self.__max_words
+
+    @property
+    def max_frames(self):
+        return self.__max_frames
 
     @property
     def features_path(self):
