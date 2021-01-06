@@ -104,7 +104,7 @@ if __name__ == '__main__':
   #load test set features
   test_vidxs = list(set(corpus[2][1]))
 
-  with h5py.File(config.features_path, 'r') as feats_file:
+  with h5py.File(os.path.join(args.dataset_folder, config.features_path), 'r') as feats_file:
       print('loading visual feats...')
       dataset = feats_file[config.dataset_name]
       cnn_feats = torch.from_numpy(dataset['cnn_features'][test_vidxs]).float()
