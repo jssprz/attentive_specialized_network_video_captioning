@@ -55,14 +55,14 @@ For extracting your own visual features representations we provide the [visual-f
 ### Training
 If you want to train your own models, you can reutilize the datasets' information stored and tokenized in the corpus.pkl files. We use the val_references.txt and test_references.tx files for computing the evaluation metrics only.
 The content of these files is organized as follow:
-0. ``train_data``: captions and idxs of training videos in format ``[corpus_widxs, vidxs]``, where:
-- ``corpus_widxs`` is a list of lists with the index of words in the vocabulary
-- ``vidxs`` is a list of indexes of video features in the features file
-1. ``val_data``: same format of train_data.
-2. ``test_data``: same format of train_data.
-3. ``vocabulary``: in format ``{'word': count}``.
-4. ``idx2word``: is the vocabulary in format ``{idx: 'word'}``.
-5. ``word_embeddings``: are the vectors of each word. The *i*-th row is the word vector of the i-th word in the vocabulary.
+0: ``train_data``: captions and idxs of training videos in format ``[corpus_widxs, vidxs]``, where:
+	- ``corpus_widxs`` is a list of lists with the index of words in the vocabulary
+	- ``vidxs`` is a list of indexes of video features in the features file
+1: ``val_data``: same format of train_data.
+2: ``test_data``: same format of train_data.
+3: ``vocabulary``: in format ``{'word': count}``.
+4: ``idx2word``: is the vocabulary in format ``{idx: 'word'}``.
+5: ``word_embeddings``: are the vectors of each word. The *i*-th row is the word vector of the i-th word in the vocabulary.
 The URLs for downloading these files are:
 https://s06.imfd.cl/04/github-data/AVSSN/MSVD/corpus.pkl
 https://s06.imfd.cl/04/github-data/AVSSN/MSR-VTT/corpus.pkl
