@@ -58,7 +58,9 @@ If you want to train your own models, you can reutilize the datasets' informatio
 The content of these files is organized as follow:
 
 0: ``train_data``: captions and idxs of training videos in format ``[corpus_widxs, vidxs]``, where:
+	
 	- ``corpus_widxs`` is a list of lists with the index of words in the vocabulary
+	
 	- ``vidxs`` is a list of indexes of video features in the features file
 
 1: ``val_data``: same format of train_data.
