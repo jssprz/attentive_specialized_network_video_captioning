@@ -101,7 +101,7 @@ python evaluate.py -gen results/MSR-VTT/predictions.txt -ref data/MSR-VTT/test_r
 
 ## <a name="quantitative"></a>Quantitative Results
 
-| Dataset | epoch    | B-4      | C        | M        | R        
+| Dataset | epoch    | B-4      | M        | C        | R        
 | :------ | :------: | :------: | :------: | :------: | :------:
 |MSVD     | 100      | 62.3     | 39.2     | 107.7    | 78.3
 |MSR-VTT  | 60       | 45.5     | 31.4     | 50.6     | 64.3
