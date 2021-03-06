@@ -1,8 +1,9 @@
 # Attentive Visual Semantic Specialized Network for Video Captioning
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) 
-![DeepLearning](https://img.shields.io/badge/VideoCaptioning-DeepLearning-orange)
-![](https://img.shields.io/badge/ICPRpaper-SourceCode-yellow)
+![Video Captioning and DeepLearning](https://img.shields.io/badge/VideoCaptioning-DeepLearning-orange)
+![Source code of a ICPR'20 paper](https://img.shields.io/badge/ICPRpaper-SourceCode-yellow)
+![MIT License](https://img.shields.io/badge/license-MIT-green)
 
 This repository is the source code for the paper named ***Attentive Visual Semantic Specialized Network for Video Captioning***.
 In this paper, we present a new architecture that we call *Attentive Visual Semantic Specialized Network* (AVSSN), which is an encoder-decoder model based on our Adaptive Attention Gate and Specialized LSTM layers. 
@@ -11,6 +12,7 @@ The adaptive gate makes the decoder to automatically select the relevant informa
 We evaluate the effectiveness of the proposed approach on the Microsoft Video Description (MSVD) and the Microsoft Research Video-to-Text (MSR-VTT) datasets, achieving state-of-the-art performance with several popular evaluation metrics: BLEU-4, METEOR, CIDEr, and ROUGE_L.
 
 ## Table of Contents
+
 1. [Model](#model)
 2. [Requirements](#requirements)
 3. [Manual](#manual)
@@ -32,12 +34,15 @@ We evaluate the effectiveness of the proposed approach on the Microsoft Video De
  </table>
 
 ## <a name="requirements"></a>Requirements
+
 1. Python 3.6
 2. PyTorch 1.2.0
 4. NumPy
 
 ## <a name="manual"></a>Manual
+
 ### Download code
+
 ```
 git clone --recursive https://github.com/jssprz/attentive-specialized-network-video-captioning.git
 ```
@@ -51,11 +56,9 @@ mkdir -p data/MSR-VTT && wget -i msrvtt_data.txt -P data/MSR-VTT
 
 For extracting your own visual features representations we provide the [visual-feature-extracotr](https://github.com/jssprz/video-features-extractor) package.
 
-
 ### Training
 
-If you want to train your own models, you can reutilize the datasets' information stored and tokenized in the corpus.pkl files. We use the val_references.txt and test_references.tx files for computing the evaluation metrics only.
-The content of these files is organized as follow:
+If you want to train your own models, you can reutilize the datasets' information stored and tokenized in the ``corpus.pkl`` files. The content of these files is organized as follow:
 
 0: ``train_data``: captions and idxs of training videos in format ``[corpus_widxs, vidxs]``, where:
 	
@@ -72,6 +75,7 @@ The content of these files is organized as follow:
 
 5: ``word_embeddings``: are the vectors of each word. The *i*-th row is the word vector of the i-th word in the vocabulary.
 
+We use the ``val_references.txt`` and ``test_references.txt`` files for computing the evaluation metrics only.
 
 ### Testing
 
