@@ -1,10 +1,7 @@
 # Attentive Visual Semantic Specialized Network for Video Captioning
 
-<<<<<<< HEAD
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-=======
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) 
->>>>>>> 7193f16096e7c8b71b9763ef36a1147ec4720ab7
 ![Video Captioning and DeepLearning](https://img.shields.io/badge/VideoCaptioning-DeepLearning-orange)
 ![Source code of a ICPR'20 paper](https://img.shields.io/badge/ICPRpaper-SourceCode-yellow)
 ![MIT License](https://img.shields.io/badge/license-MIT-green)
