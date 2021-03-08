@@ -8,8 +8,11 @@ from model.attention import Attention
 
 
 class SCNAttnDecoder(nn.Module):
-    def __init__(self, in_seq_length, out_seq_length, n_feats, n_tags, embedding_size, hidden_size, rnn_in_size, rnn_hidden_size, vocab, device, encoder_num_layers, encoder_bidirectional, 
-                 pretrained_embedding=None, rnn_cell='gru', num_layers=1, dropout_p=0.5, beam_size=10, temperature=1.0, train_sample_max=False, test_sample_max=True, beam_search_logic='bfs'):
+    def __init__(self, in_seq_length, out_seq_length, n_feats, n_tags, embedding_size, 
+                 hidden_size, rnn_in_size, rnn_hidden_size, vocab, device, encoder_num_layers,
+                 encoder_bidirectional, pretrained_embedding=None, rnn_cell='gru', num_layers=1,
+                 dropout_p=0.5, beam_size=10, temperature=1.0, train_sample_max=False, 
+                 test_sample_max=True, beam_search_logic='bfs'):
         super(SCNAttnDecoder, self).__init__()
         self.hidden_size = hidden_size
         self.embedding_size = embedding_size
