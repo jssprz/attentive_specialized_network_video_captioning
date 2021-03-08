@@ -1,6 +1,10 @@
 # Attentive Visual Semantic Specialized Network for Video Captioning
 
+<<<<<<< HEAD
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+=======
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) 
+>>>>>>> 7193f16096e7c8b71b9763ef36a1147ec4720ab7
 ![Video Captioning and DeepLearning](https://img.shields.io/badge/VideoCaptioning-DeepLearning-orange)
 ![Source code of a ICPR'20 paper](https://img.shields.io/badge/ICPRpaper-SourceCode-yellow)
 ![MIT License](https://img.shields.io/badge/license-MIT-green)
@@ -105,7 +109,7 @@ python evaluate.py -gen results/MSR-VTT/predictions.txt -ref data/MSR-VTT/test_r
 
 ## <a name="quantitative"></a>Quantitative Results
 
-| Dataset | epoch    | B-4      | C        | M        | R        
+| Dataset | epoch    | B-4      | M        | C        | R        
 | :------ | :------: | :------: | :------: | :------: | :------:
 |MSVD     | 100      | 62.3     | 39.2     | 107.7    | 78.3
 |MSR-VTT  | 60       | 45.5     | 31.4     | 50.6     | 64.3
