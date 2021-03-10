@@ -242,10 +242,10 @@ class SCNAttnDecoder(nn.Module):
         return self.forward(videos_encodes, None, teacher_forcing_ratio=0.0)
 
 
-class VSCNAttnDecoder(nn.Module):
+class AVSCNDecoder(nn.Module):
     def __init__(self, in_seq_length, out_seq_length, n_feats, n_tags, embedding_size, hidden_size, rnn_in_size, rnn_hidden_size, vocab, device, encoder_num_layers, encoder_bidirectional, 
                  pretrained_embedding=None, rnn_cell='gru', num_layers=1, dropout_p=0.5, beam_size=10, temperature=1.0, train_sample_max=False, test_sample_max=True, beam_search_logic='bfs'):
-        super(VSCNAttnDecoder, self).__init__()
+        super(AVSCNDecoder, self).__init__()
 
         self.hidden_size = hidden_size
         self.embedding_size = embedding_size
@@ -280,7 +280,7 @@ class VSCNAttnDecoder(nn.Module):
                                              encoder_bidirectional, pretrained_embedding, rnn_cell, num_layers, dropout_p, 
                                              beam_size, temperature, train_sample_max, test_sample_max, beam_search_logic)
 
-        # lo unico que hice fue cambiar el n_feats y el n_tags
+        # change n_feats and n_tags only
         self.visual_layer = SCNAttnDecoder(in_seq_length, out_seq_length, n_tags, n_feats, embedding_size, hidden_size,
                                              rnn_in_size, rnn_hidden_size, vocab, device, encoder_num_layers, 
                                              encoder_bidirectional, pretrained_embedding, rnn_cell, num_layers, dropout_p, 
