@@ -45,7 +45,7 @@ We evaluate the effectiveness of the proposed approach on the Microsoft Video De
 ### Download code
 
 ```
-git clone --recursive https://github.com/jssprz/attentive-specialized-network-video-captioning.git
+git clone --recursive https://github.com/jssprz/attentive_specialized_network_video_captioning.git
 ```
 
 ### Download Data
