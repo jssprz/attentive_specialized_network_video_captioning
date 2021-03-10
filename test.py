@@ -6,7 +6,7 @@ from utils import decode_from_tokens
 from vocabulary import Vocabulary
 from configuration_file import ConfigurationFile
 from model.encoder import SCNEncoder
-from model.decoder import VSCNAttnDecoder
+from model.decoder import AVSCNDecoder
 
 import h5py
 import torch
@@ -68,27 +68,27 @@ if __name__ == '__main__':
                         rnn_cell=config.encoder_rnn_cell,
                         device='cpu')
 
-  decoder = VSCNAttnDecoder(in_seq_length=config.max_frames, 
-                            out_seq_length=config.max_words,
-                            n_feats=res_eco_features_size + 512,
-                            n_tags=n_tags,
-                            embedding_size=embedding_size,
-                            pretrained_embedding=pretrained_embedding,
-                            hidden_size=hidden_size, 
-                            rnn_in_size=rnn_in_size, 
-                            rnn_hidden_size=rnn_hidden_size,
-                            vocab=vocab,
-                            device='cpu',
-                            rnn_cell=config.decoder_rnn_cell,
-                            encoder_num_layers=config.encoder_num_layers,
-                            encoder_bidirectional=config.encoder_bidirectional,
-                            num_layers=config.decoder_num_layers,
-                            dropout_p=config.decoder_dropout_p,
-                            beam_size=config.decoder_beam_size,
-                            temperature=config.decoder_temperature, 
-                            train_sample_max=config.decoder_train_sample_max,
-                            test_sample_max=config.decoder_test_sample_max,
-                            beam_search_logic = config.decoder_beam_search_logic)
+  decoder = AVSCNDecoder(in_seq_length=config.max_frames, 
+                          out_seq_length=config.max_words,
+                          n_feats=res_eco_features_size + 512,
+                          n_tags=n_tags,
+                          embedding_size=embedding_size,
+                          pretrained_embedding=pretrained_embedding,
+                          hidden_size=hidden_size, 
+                          rnn_in_size=rnn_in_size, 
+                          rnn_hidden_size=rnn_hidden_size,
+                          vocab=vocab,
+                          device='cpu',
+                          rnn_cell=config.decoder_rnn_cell,
+                          encoder_num_layers=config.encoder_num_layers,
+                          encoder_bidirectional=config.encoder_bidirectional,
+                          num_layers=config.decoder_num_layers,
+                          dropout_p=config.decoder_dropout_p,
+                          beam_size=config.decoder_beam_size,
+                          temperature=config.decoder_temperature, 
+                          train_sample_max=config.decoder_train_sample_max,
+                          test_sample_max=config.decoder_test_sample_max,
+                          beam_search_logic = config.decoder_beam_search_logic)
 
   # Checkpoint
   checkpoint = torch.load(args.checkpoint_path, map_location='cpu')
