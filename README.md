@@ -1,15 +1,15 @@
 # Attentive Visual Semantic Specialized Network for Video Captioning
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) 
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 ![Video Captioning and DeepLearning](https://img.shields.io/badge/VideoCaptioning-DeepLearning-orange)
 ![Source code of a ICPR'20 paper](https://img.shields.io/badge/ICPRpaper-SourceCode-yellow)
 ![MIT License](https://img.shields.io/badge/license-MIT-green)
 
 This repository is the source code for the paper named ***Attentive Visual Semantic Specialized Network for Video Captioning***.
-In this paper, we present a new architecture that we call *Attentive Visual Semantic Specialized Network* (AVSSN), which is an encoder-decoder model based on our Adaptive Attention Gate and Specialized LSTM layers. 
-This architecture can selectively decide when to use visual or semantic information into the text generation process. 
-The adaptive gate makes the decoder to automatically select the relevant information for providing a better temporal state representation than the existing decoders. 
+In this paper, we present a new architecture that we call *Attentive Visual Semantic Specialized Network* (AVSSN), which is an encoder-decoder model based on our Adaptive Attention Gate and Specialized LSTM layers.
+This architecture can selectively decide when to use visual or semantic information into the text generation process.
+The adaptive gate makes the decoder to automatically select the relevant information for providing a better temporal state representation than the existing decoders.
 We evaluate the effectiveness of the proposed approach on the Microsoft Video Description (MSVD) and the Microsoft Research Video-to-Text (MSR-VTT) datasets, achieving state-of-the-art performance with several popular evaluation metrics: BLEU-4, METEOR, CIDEr, and ROUGE_L.
 
 ## Table of Contents
@@ -19,7 +19,7 @@ We evaluate the effectiveness of the proposed approach on the Microsoft Video De
 3. [Manual](#manual)
 4. [Qualitative Results](#qualitative)
 5. [Quantitative Results](#quantitative)
-7. [Citation](#citation)
+6. [Citation](#citation)
 
 ## <a name="model"></a>Model
 
@@ -38,7 +38,7 @@ We evaluate the effectiveness of the proposed approach on the Microsoft Video De
 
 1. Python 3.6
 2. PyTorch 1.2.0
-4. NumPy
+3. NumPy
 
 ## <a name="manual"></a>Manual
 
@@ -80,21 +80,21 @@ We use the ``val_references.txt`` and ``test_references.txt`` files for computin
 
 ### Testing
 
-1. Download pre-trained models (at epoch 15)
+### 1. Download pre-trained models (at epoch 15)
 
 ```
 wget https://s06.imfd.cl/04/github-data/AVSSN/MSVD/captioning_chkpt_15.pt -P pretrain/MSVD
 wget https://s06.imfd.cl/04/github-data/AVSSN/MSR-VTT/captioning_chkpt_15.pt -P pretrain/MSR-VTT
 ```
 
-2. Generate captions for test samples
+#### 2. Generate captions for test samples
 
 ```
 python test.py -chckpt pretrain/MSVD/captioning_chkpt_15.pt -data data/MSVD/ -out results/MSVD/
 python test.py -chckpt pretrain/MSR-VTT/captioning_chkpt_15.pt -data data/MSR-VTT/ -out results/MSR-VTT/
 ```
 
-3. Metrics
+#### 3. Metrics
 
 ```
 python evaluate.py -gen results/MSVD/predictions.txt -ref data/MSVD/test_references.txt
@@ -106,7 +106,7 @@ python evaluate.py -gen results/MSR-VTT/predictions.txt -ref data/MSR-VTT/test_r
 
 ## <a name="quantitative"></a>Quantitative Results
 
-| Dataset | epoch    | B-4      | M        | C        | R        
+| Dataset | epoch    | B-4      | M        | C        | R
 | :------ | :------: | :------: | :------: | :------: | :------:
 |MSVD     | 100      | 62.3     | 39.2     | 107.7    | 78.3
 |MSR-VTT  | 60       | 45.5     | 31.4     | 50.6     | 64.3
@@ -115,9 +115,9 @@ python evaluate.py -gen results/MSR-VTT/predictions.txt -ref data/MSR-VTT/test_r
 
 ```
 @article{PerezMartin2020AttentiveCaptioning,
-	title={Attentive Visual Semantic Specialized Network for Video Captioning},
-	author={Jesus Perez-Martin and Benjamin Bustos and Jorge Pérez},
-	booktitle={25th International Conference on Pattern Recognition},
-	year={2020}
+  title={Attentive Visual Semantic Specialized Network for Video Captioning},
+  author={Jesus Perez-Martin and Benjamin Bustos and Jorge Pérez},
+  booktitle={25th International Conference on Pattern Recognition},
+  year={2020}
 }
 ```
