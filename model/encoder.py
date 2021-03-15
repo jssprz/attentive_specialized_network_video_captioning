@@ -3,10 +3,10 @@ import torch.nn as nn
 from torch.autograd import Variable
 
 
-class SCNEncoder(nn.Module):
+class Encoder(nn.Module):
     def __init__(self, cnn_feature_size, c3d_feature_size, i3d_feature_size, n_tags, hidden_size, global_tagger_hidden_size, specific_tagger_hidden_size, input_dropout_p=0.2, 
                  rnn_dropout_p=0.5, n_layers=1, bidirectional=False, rnn_cell='gru', device='gpu'):
-        super(SCNEncoder, self).__init__()
+        super(Encoder, self).__init__()
 
         self.cnn_feature_size = cnn_feature_size
         self.c3d_feature_size = c3d_feature_size

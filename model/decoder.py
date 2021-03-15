@@ -7,13 +7,13 @@ from model.attention import Attention
 
 
 
-class SCNAttnDecoder(nn.Module):
+class S_LSTMCell(nn.Module):
     def __init__(self, in_seq_length, out_seq_length, n_feats, n_tags, embedding_size, 
                  hidden_size, rnn_in_size, rnn_hidden_size, vocab, device, encoder_num_layers,
                  encoder_bidirectional, pretrained_embedding=None, rnn_cell='gru', num_layers=1,
                  dropout_p=0.5, beam_size=10, temperature=1.0, train_sample_max=False, 
                  test_sample_max=True, beam_search_logic='bfs'):
-        super(SCNAttnDecoder, self).__init__()
+        super(S_LSTMCell, self).__init__()
         self.hidden_size = hidden_size
         self.embedding_size = embedding_size
         self.output_size = len(vocab)
@@ -242,10 +242,10 @@ class SCNAttnDecoder(nn.Module):
         return self.forward(videos_encodes, None, teacher_forcing_ratio=0.0)
 
 
-class AVSCNDecoder(nn.Module):
+class AVSSNDecoder(nn.Module):
     def __init__(self, in_seq_length, out_seq_length, n_feats, n_tags, embedding_size, hidden_size, rnn_in_size, rnn_hidden_size, vocab, device, encoder_num_layers, encoder_bidirectional, 
                  pretrained_embedding=None, rnn_cell='gru', num_layers=1, dropout_p=0.5, beam_size=10, temperature=1.0, train_sample_max=False, test_sample_max=True, beam_search_logic='bfs'):
-        super(AVSCNDecoder, self).__init__()
+        super(AVSSNDecoder, self).__init__()
 
         self.hidden_size = hidden_size
         self.embedding_size = embedding_size
@@ -275,13 +275,13 @@ class AVSCNDecoder(nn.Module):
             self.embedding = nn.Embedding(self.output_size, embedding_size)
         self.embedd_drop = nn.Dropout(dropout_p)
         
-        self.semantic_layer = SCNAttnDecoder(in_seq_length, out_seq_length, n_feats, n_tags, embedding_size, hidden_size,
+        self.semantic_layer = S_LSTMCell(in_seq_length, out_seq_length, n_feats, n_tags, embedding_size, hidden_size,
                                              rnn_in_size, rnn_hidden_size, vocab, device, encoder_num_layers, 
                                              encoder_bidirectional, pretrained_embedding, rnn_cell, num_layers, dropout_p, 
                                              beam_size, temperature, train_sample_max, test_sample_max, beam_search_logic)
 
         # change n_feats and n_tags only
-        self.visual_layer = SCNAttnDecoder(in_seq_length, out_seq_length, n_tags, n_feats, embedding_size, hidden_size,
+        self.visual_layer = S_LSTMCell(in_seq_length, out_seq_length, n_tags, n_feats, embedding_size, hidden_size,
                                              rnn_in_size, rnn_hidden_size, vocab, device, encoder_num_layers, 
                                              encoder_bidirectional, pretrained_embedding, rnn_cell, num_layers, dropout_p, 
                                              beam_size, temperature, train_sample_max, test_sample_max, beam_search_logic)
